@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchTest_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <timer width="136" alignment="left" textAlignment="left" format="short" previewedSeconds="10" id="mdX-Ed-ANI">
+                            <calendarUnit key="units" second="YES"/>
+                        </timer>
+                        <button width="1" height="132" alignment="left" title="BOOO" id="nMU-zX-RTJ">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="50"/>
+                            <connections>
+                                <action selector="tapBtn" destination="AgC-eL-Hgc" id="V3o-3a-7qY"/>
+                            </connections>
+                        </button>
+                        <separator alignment="left" id="7CW-Gn-bNr">
+                            <color key="color" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <table alignment="left" id="6D7-u8-Irr">
+                            <items>
+                                <tableRow identifier="MyRow" id="xtU-CY-aT3" customClass="MyRow" customModule="WatchTest_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="CPt-Sw-jDw">
+                                        <items>
+                                            <label width="136" height="36" alignment="left" text="Label" textAlignment="center" id="2PE-YR-Bdd"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.77972056879999996" green="0.57475512169999998" blue="0.29915741870000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="myLabel" destination="2PE-YR-Bdd" id="wfP-sE-2rt"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="6D7-u8-Irr" id="YEP-MG-cXG"/>
+                        <outlet property="wkTimer" destination="mdX-Ed-ANI" id="RHD-dG-7wm"/>
+                        <segue destination="Bfg-eV-Dh5" kind="relationship" relationship="nextPage" id="sdQ-yc-Nvl"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="465" y="433.25"/>
+        </scene>
+        <!--Util Interface Controller-->
+        <scene sceneID="lhL-EE-UTN">
+            <objects>
+                <controller id="Bfg-eV-Dh5" customClass="UtilInterfaceController" customModule="WatchTest_WatchKit_Extension">
+                    <items>
+                        <label width="136" alignment="left" text="DELAY TIME:0s" textAlignment="left" id="x4d-Oi-ty0">
+                            <variation key="device=watch38mm" width="136"/>
+                            <variation key="device=watch42mm" width="136"/>
+                        </label>
+                        <slider width="1" alignment="left" maximum="5" steps="5" id="62i-BM-5hM">
+                            <connections>
+                                <action selector="onSlider:" destination="Bfg-eV-Dh5" id="zEn-wy-2iU"/>
+                            </connections>
+                        </slider>
+                        <separator alignment="left" id="Inu-fr-idh">
+                            <color key="color" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <switch width="1" alignment="left" title="VIBE" id="Sjm-Yy-hVh">
+                            <connections>
+                                <action selector="changeSwitch:" destination="Bfg-eV-Dh5" id="jhD-RI-J3d"/>
+                            </connections>
+                        </switch>
+                    </items>
+                    <connections>
+                        <outlet property="label" destination="x4d-Oi-ty0" id="lYU-mT-lY2"/>
+                        <outlet property="slider" destination="62i-BM-5hM" id="YAa-9g-sB4"/>
+                        <outlet property="switch" destination="Sjm-Yy-hVh" id="LYY-FO-FHR"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="680" y="419"/>
+        </scene>
+    </scenes>
+</document>
