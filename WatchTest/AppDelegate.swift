@@ -18,6 +18,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+    
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+        var info = userInfo as! [String:[Int]]
+        if true {
+            var countStr:String = ""
+            let vc  = self.window?.rootViewController as! ViewController
+            if var from1 = info["fromWatchKit"]{
+                vc.playSound()
+                if from1[1] == 1 {
+                    vc.playVibe()
+                }
+            }else if var from2 = info["fromWatchKit2"]{
+                vc.playSoundAtIndex(String(from2[0]))
+                if from2[1] == 1 {
+                    vc.playVibe()
+                }
+            }else{
+                var countStr:String = "0"
+            }
+            reply(["fromApp":"(CountUp)"])
+        }
+    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
